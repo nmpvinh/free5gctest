@@ -28,7 +28,7 @@ webui:
   controller:
     replicaCount: 1
     image:
-      repository: sufuf3/nextepc-webui
+      repository: free5gctest/nextepc-webui
       tag: latest
       pullPolicy: IfNotPresent
   service:
@@ -37,7 +37,7 @@ webui:
 
 free5gc:
   image:
-    repository: sufuf3/nextepc-build
+    repository: free5gctest/nextepc-build
     tag: latest
     pullPolicy: IfNotPresent
   amf:
