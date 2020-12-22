@@ -2,8 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-createNamespace: true
-namespace: cn1
+createNamespace: false
+namespace: osm
 mongodb:
   enabled: true
   controller:
