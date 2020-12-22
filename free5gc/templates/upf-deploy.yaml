@@ -64,10 +64,10 @@ spec:
           limits:
             intel.com/sriov_net: '1'
       #hostNetwork: true
-      securityContext:
-        sysctls:
-          - name: net.ipv6.conf.all.disable_ipv6
-            value: "0"
+     #securityContext:
+     #  sysctls:
+     #    - name: net.ipv6.conf.all.disable_ipv6
+     #      value: "0"
       volumes:
         - name: config-volume
           configMap:
