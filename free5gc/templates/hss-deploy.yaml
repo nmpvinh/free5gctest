@@ -66,10 +66,10 @@ spec:
           privileged: true
           capabilities:
             add: ["NET_ADMIN", "SYS_TIME"]
-      securityContext:
-        sysctls:
-          - name: net.ipv6.conf.all.disable_ipv6
-            value: "0"
+      #securityContext:
+      #  sysctls:
+      #    - name: net.ipv6.conf.all.disable_ipv6
+      #      value: "0"
       volumes:
         - name: config-volume
           configMap:
