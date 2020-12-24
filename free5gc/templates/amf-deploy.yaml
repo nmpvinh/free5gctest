@@ -64,11 +64,11 @@ spec:
           privileged: true
           capabilities:
             add: ["NET_ADMIN", "SYS_TIME"]
-        resources:
-          requests:
-            intel.com/sriov_net: '1' 
-          limits:
-            intel.com/sriov_net: '1'
+        #resources:
+        #  requests:
+        #    intel.com/sriov_net: '1' 
+        #  limits:
+        #    intel.com/sriov_net: '1'
       #hostNetwork: true
       #securityContext:
       #  sysctls:
