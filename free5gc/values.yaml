@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 createNamespace: false
-namespace: cn1
+namespace: free5gc
 mongodb:
   enabled: true
   controller:
