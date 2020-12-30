@@ -8,6 +8,6 @@ entries:
     digest: a6a17b8e466f548507d3a5e755446ea9c05a73e95744660005849debdd7cac2a
     name: free5gc
     urls:
-    - https://nmpvinh.github.io/free5gctest/free5gc-0.1.1.tgz
+    - https://nmpvinh.github.io/free5gctest/free5gc-0.1.0.tgz
     version: 0.1.0
 generated: 2020-12-16T15:25:32.290118255+07:00
