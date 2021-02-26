@@ -29,7 +29,7 @@ webui:
     replicaCount: 1
     image:
       repository: sufuf3/nextepc-webui
-      tag: latest
+      tag: version-1.0.0
       pullPolicy: IfNotPresent
   service:
     nodePort: true
