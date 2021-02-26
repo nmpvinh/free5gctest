@@ -29,7 +29,7 @@ webui:
     replicaCount: 1
     image:
       repository: sufuf3/nextepc-webui
-      tag: version-0.1.0
+      tag: version-1.0.0
       pullPolicy: IfNotPresent
   service:
     nodePort: true
@@ -38,7 +38,7 @@ webui:
 free5gc:
   image:
     repository: sufuf3/nextepc-build
-    tag: version-0.1.0
+    tag: version-1.0.0
     pullPolicy: IfNotPresent
   amf:
     enabled: true
