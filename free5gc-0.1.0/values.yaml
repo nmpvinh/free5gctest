@@ -28,7 +28,7 @@ webui:
   controller:
     replicaCount: 1
     image:
-      repository: sufuf3/nextepc-webui
+      repository: dockerfree5gc/free5gc-webui
       tag: latest
       pullPolicy: IfNotPresent
   service:
@@ -37,9 +37,21 @@ webui:
 
 free5gc:
   image:
-    repository: wgx1999/free5gc
-    tag: 1.0.0
-    pullPolicy: IfNotPresent
+    - repository1: dockerfree5gc/free5gc-amf
+      tag1: latest
+      pullPolicy1: IfNotPresent
+    - repository2: dockerfree5gc/free5gc-hss
+      tag2: latest
+      pullPolicy2: IfNotPresent
+    - repository3: dockerfree5gc/free5gc-smf
+      tag3: latest
+      pullPolicy3: IfNotPresent
+    - repository4: dockerfree5gc/free5gc-pcf
+      tag4: latest
+      pullPolicy4: IfNotPresent
+    - repository5: dockerfree5gc/free5gc-upf
+      tag5: latest
+      pullPolicy5: IfNotPresent  
   amf:
     enabled: true
     addr: 10.233.100.202

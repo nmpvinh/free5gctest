@@ -39,7 +39,7 @@ spec:
         - "upf.localdomain"
       containers:
       - name: amf-container
-        image: "{{ .Values.free5gc.image.repository }}:{{ .Values.free5gc.image.tag }}"
+        image: "{{ .Values.free5gc.image.repository1 }}:{{ .Values.free5gc.image.tag1 }}"
         command: ["/bin/bash"]
         args: ["-c", "/usr/src/free5gc/free5gc-amfd"]
         ports:
@@ -49,7 +49,7 @@ spec:
             name: api2
         stdin: true
         tty: true
-        imagePullPolicy: {{ .Values.free5gc.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.free5gc.image.pullPolicy1 }}
         env:
           - name: DB_URI
             value: mongodb://mongo-external.{{ .Values.namespace }}.svc.cluster.local/nextepc

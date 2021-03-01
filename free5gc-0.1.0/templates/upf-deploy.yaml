@@ -39,12 +39,12 @@ spec:
         - "upf.localdomain"
       containers:
       - name: upf-container
-        image: "{{ .Values.free5gc.image.repository }}:{{ .Values.free5gc.image.tag }}"
+        image: "{{ .Values.free5gc.image.repository5 }}:{{ .Values.free5gc.image.tag5 }}"
         command: ["/bin/bash"]
         args: ["-c", "/usr/src/free5gc/free5gc-upfd"]
         stdin: true
         tty: true
-        imagePullPolicy: {{ .Values.free5gc.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.free5gc.image.pullPolicy5 }}
         env:
           - name: DB_URI
             value: mongodb://mongo-external.{{ .Values.namespace }}.svc.cluster.local/nextepc

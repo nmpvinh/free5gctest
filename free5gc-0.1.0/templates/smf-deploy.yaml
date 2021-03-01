@@ -38,7 +38,7 @@ spec:
         - "upf.localdomain"
       containers:
       - name: smf-container
-        image: "{{ .Values.free5gc.image.repository }}:{{ .Values.free5gc.image.tag }}"
+        image: "{{ .Values.free5gc.image.repository3 }}:{{ .Values.free5gc.image.tag3 }}"
         command: ["/bin/bash"]
         #args: ["-c", "sleep 36000"]
         args: ["-c", "/usr/src/free5gc/free5gc-smfd"]
@@ -49,7 +49,7 @@ spec:
           #  name: api1
           #- containerPort: 3868
           #  name: api2
-        imagePullPolicy: {{ .Values.free5gc.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.free5gc.image.pullPolicy3 }}
         env:
           - name: DB_URI
             value: mongodb://mongo-external.{{ .Values.namespace }}.svc.cluster.local/nextepc
