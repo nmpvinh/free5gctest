@@ -51,7 +51,7 @@ free5gc:
       pullPolicy4: IfNotPresent
     - repository5: dockerfree5gc/free5gc-upf
       tag5: latest
-      pullPolicy5: IfNotPresent  
+      pullPolicy5: IfNotPresent
   amf:
     enabled: true
     addr: 10.233.100.202
