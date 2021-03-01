@@ -36,11 +36,6 @@ webui:
     nodePortNum: 31727
 
 free5gc:
-  
-    - 
-    - 
-    - 
-    - 
   amf:
     enabled: true
     addr: 10.233.100.202
