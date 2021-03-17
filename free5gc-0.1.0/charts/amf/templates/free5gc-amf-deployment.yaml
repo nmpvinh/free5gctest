@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c --volumes hostPath
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: free5gc-amf
+  name: free5gc-amf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: free5gc-amf
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c --volumes hostPath
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/privnet: "true"
+        io.kompose.service: free5gc-amf
+    spec:
+      hostname: amf
+      containers:
+        - args:
+            - ./amf
+            - -amfcfg
+            - /free5gc/config/amfcfg.yaml
+          env:
+            - name: GIN_MODE
+              value: release
+          image: lttp94/f5gc-amf:latest 
+          name: amf
+          ports:
+            - containerPort: 8000
+          resources: {}
+          volumeMounts:
+            - mountPath: /free5gc/config/amfcfg.yaml
+              name: cm-single-file-volume
+              subPath: amfcfg.yaml
+      restartPolicy: Always
+      volumes:
+         - name: cm-single-file-volume
+           configMap:
+             name: cm-single-file
+status: {}

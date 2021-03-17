@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c --volumes hostPath
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: free5gc-webui
+  name: free5gc-webui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: free5gc-webui
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c --volumes hostPath
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/privnet: "true"
+        io.kompose.service: free5gc-webui
+    spec:
+      containers:
+        - args:
+            - ./webui
+          env:
+            - name: GIN_MODE
+              value: release
+          image: lttp94/f5gc-webui:latest
+          name: webui
+          ports:
+            - containerPort: 5000
+          resources: {}
+          volumeMounts:
+            - mountPath: /free5gc/config/webuicfg.yaml
+              name: config-map-volume
+              subPath: webuicfg.yaml
+      restartPolicy: Always
+      volumes:
+        - name: config-map-volume
+          configMap:
+            name: webui-config-map
+status: {}
