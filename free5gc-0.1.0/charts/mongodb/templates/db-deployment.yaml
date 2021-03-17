@@ -6,13 +6,13 @@ metadata:
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
-    io.kompose.service: free5gc-webui
-  name: free5gc-webui
+    io.kompose.service: db
+  name: db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: free5gc-webui
+      io.kompose.service: db
   strategy:
     type: Recreate
   template:
@@ -23,26 +23,24 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.network/privnet: "true"
-        io.kompose.service: free5gc-webui
+        io.kompose.service: db
     spec:
       containers:
         - args:
-            - ./webui
-          env:
-            - name: GIN_MODE
-              value: release
-          image: lttp94/f5gc-webui:latest
-          name: webui
+            - mongod
+            - --port
+            - "27017"
+          image: mongo
+          name: mongodb
           ports:
-            - containerPort: 5000
+            - containerPort: 27017
           resources: {}
           volumeMounts:
-            - mountPath: /free5gc/config/webuicfg.yaml
-              name: config-map-volume
-              subPath: webuicfg.yaml
+            - mountPath: /data/db
+              name: dbdata
       restartPolicy: Always
       volumes:
-        - name: config-map-volume
-          configMap:
-            name: webui-config-map
+        - hostPath:
+            path: /root/free5gc-compose
+          name: dbdata
 status: {}
