@@ -31,7 +31,7 @@ spec:
           env:
             - name: GIN_MODE
               value: release
-          image: lttp94/f5gc-webui:latest
+          image: sufuf3/nextepc-webui:latest
           name: webui
           ports:
             - containerPort: 5000
